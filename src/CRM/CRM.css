@@ -1,0 +1,7 @@
+.radio-buttons{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    text-align: left;
+    font-size: 20px;
+}

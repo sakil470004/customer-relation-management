@@ -31,7 +31,7 @@ const Navigation = ({ user, setUser }) => {
 
                 <div className="nav-links">
                     <Link to='/'>Home</Link>
-                    <Link to='/addProduct'>Add Product</Link>
+                    <Link to='/addProduct'>CRM</Link>
                     { user &&<Link to='/'>{user}</Link>
                         }
                     {!user ?

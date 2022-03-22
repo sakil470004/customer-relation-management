@@ -17,7 +17,7 @@ function Login({ setUser }) {
     const handleLoginSubmit = (e) => {
         const newLoginData = { email: loginData.email.toLowerCase(), password: loginData.password }
 
-        fetch('http://localhost:5000/user', {
+        fetch('https://customer-relation-managements.herokuapp.com/user', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

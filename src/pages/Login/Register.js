@@ -17,7 +17,7 @@ function Register({ setUser }) {
 
   const handleRegisterSubmit = (e) => {
     const newLoginData = { email: loginData.email.toLowerCase(), password: loginData.password }
-    fetch('http://localhost:5000/adduser', {
+    fetch('https://customer-relation-managements.herokuapp.com/adduser', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

@@ -1,6 +1,4 @@
 import './App.css';
-// import Axios from 'axios'
-// import FileDownload from 'js-file-download';
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,17 +11,10 @@ import Register from './pages/Login/Register';
 import { useEffect, useState } from 'react';
 import { getStoredCart } from './pages/fakedb/fakedb';
 import PrivateRoute from './pages/Login/PrivateRoute';
+import Home from './Home/Home';
+import CRM from './CRM/CRM';
 function App() {
-  // const handleDownload = (e) => {
-  //   Axios({
-  //     url: 'http://localhost:5000/downloadPersonal',
-  //     method: 'GET',
-  //     responseType: 'blob'
-  //   }).then((res) => {
-  //     FileDownload(res.data, 'proposal.doc')
-  //   })
-  // }
-  {/* <button onClick={handleDownload}>Sakil</button> */ }
+ 
 
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState('')
@@ -33,22 +24,21 @@ function App() {
     setUser(getStoredCart().user)
     setIsLoading(false)
   }, [user])
-  return (
+  return (isLoading? <h1>Loading...</h1>:
     <div className="App">
       <Router>
         <Navigation user={user} setUser={setUser} />
         <Routes>
-          {/* <Route path='/' element={<Home />}>
+          <Route path='/' element={<Home />}>
           </Route>
-          <Route path='/productDetails' element={<Home />}>
-          </Route> */}
 
-          {/* <Route path="/addProduct" element={
+
+          <Route path="/addProduct" element={
             <PrivateRoute user={user} isLoading={isLoading}>
-              <AddProduct />
+              <CRM />
             </PrivateRoute>
           } >
-          </Route> */}
+          </Route>
 
           <Route path="/login" element={<Login setUser={setUser} />} >
           </Route>
