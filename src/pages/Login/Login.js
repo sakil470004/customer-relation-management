@@ -33,7 +33,7 @@ function Login({ setUser }) {
                     // alert('success')
                     addToDb(loginData.email)
                     setUser(loginData.email)
-                    navigation('/')
+                    navigation('/dashboard')
                 } else {
                     alert('failed')
                 }

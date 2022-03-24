@@ -32,7 +32,7 @@ function Register({ setUser }) {
           // alert('Registration Success')
           addToDb(loginData.email)
           setUser(loginData.email)
-          navigation('/')
+          navigation('/dashboard')
         } else {
           alert(data.message)
         }
