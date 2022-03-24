@@ -4,15 +4,17 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import Footer from './pages/Responsive footer pure css/Footer';
-import Navigation from './pages/Responsive navbar pure css/Navigation';
+
 import Login from './pages/Login/Login';
 import Register from './pages/Login/Register';
 import { useEffect, useState } from 'react';
 import { getStoredCart } from './pages/fakedb/fakedb';
 import PrivateRoute from './pages/Login/PrivateRoute';
-import Home from './Home/Home';
-import CRM from './CRM/CRM';
+import Home from './pages/Home/Home';
+import CRM from './pages/CRM/CRM';
+import Dashboard from './pages/Dashboard/Dashboard';
+import DashboardHome from './pages/DashboardHome/DashboardHome';
+
 function App() {
 
 
@@ -39,11 +41,16 @@ function App() {
             </PrivateRoute>
           } >
           </Route>
-          <Route path="/Dashboard" element={
+          <Route path="/dashboard" element={
             <PrivateRoute user={user} isLoading={isLoading}>
-              <CRM />
+              <Dashboard />
+
             </PrivateRoute>
           } >
+            <Route path='/dashboard' element={<DashboardHome />}>
+            </Route>
+            <Route path='/dashboard/CRM' element={<CRM />}>
+            </Route>
           </Route>
 
           <Route path="/login" element={<Login setUser={setUser} />} >
