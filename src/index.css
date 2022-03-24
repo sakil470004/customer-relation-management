@@ -130,6 +130,9 @@ img {
   font-size: 25px;
 
 }
+.inputBox::placeholder{
+  color:red;
+}
 
 /* ===========MEDIA QUERIES (MEDIUM DEVICES)========= */
 @media screen and (max-width:1024px) {

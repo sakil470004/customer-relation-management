@@ -47,7 +47,7 @@ function Register({ setUser }) {
       <div className='home__overlay' >
         <div >
 
-          <h1>Register</h1>
+          <h1 style={{color:'red'}}>Register</h1>
 
           <form onSubmit={handleRegisterSubmit}>
             <input className='inputBox'

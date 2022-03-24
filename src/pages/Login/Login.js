@@ -48,7 +48,7 @@ function Login({ setUser }) {
             <div className='home__overlay' >
                 <div >
 
-                    <h1>Login</h1>
+                    <h1 style={{color:'red'}}>Login</h1>
 
                     <form onSubmit={handleLoginSubmit}>
                         <input className='inputBox'
