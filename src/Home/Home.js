@@ -35,7 +35,7 @@ function Home() {
 
     // </div>
     return (
-        <article className="bgAndText__container" >
+        <div className="bgAndText__container" >
             <div className="bgImage__item-image">
                 <img src={bgImage} alt="" />
             </div>
@@ -54,7 +54,7 @@ function Home() {
                     </button>
                 </div>
             </div>
-        </article>
+        </div>
     )
 }
 
