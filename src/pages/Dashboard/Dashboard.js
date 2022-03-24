@@ -11,18 +11,23 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Outlet, useNavigate } from 'react-router';
+import { removeFromDb } from '../fakedb/fakedb';
 
 const drawerWidth = 240;
 
 function Dashboard(props) {
     const Navigation = useNavigate()
 
-    const { window } = props;
+    const { window ,setUser} = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
+    const handleLogOUt=()=>{
+        removeFromDb();
+        setUser('')
+    }
 
     const drawer = (
         <div>
@@ -32,10 +37,12 @@ function Dashboard(props) {
             <Divider />
             {/* <Link to="/dashboard"> */}
             <button style={{ width: '90%' }} onClick={() => Navigation('/dashboard')} className=' btn__dashboard'>Dashboard</button>
-         
-                < br />
-                <button  onClick={() => Navigation('/dashboard/CRM')} style={{ width: '90%' }} className='btn__dashboard'>CRM</button>
-       
+
+            < br />
+            <button onClick={() => Navigation('/dashboard/CRM')} style={{ width: '90%' }} className='btn__dashboard'>CRM</button>
+            < br />
+            <button onClick={handleLogOUt} style={{ width: '90%',color:'red' }} className='btn__dashboard'>LOG OUT</button>
+
 
         </div>
     );
@@ -107,7 +114,7 @@ function Dashboard(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-               <Outlet></Outlet>
+                <Outlet></Outlet>
             </Box>
         </Box>
     );

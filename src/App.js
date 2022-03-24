@@ -43,7 +43,7 @@ function App() {
           </Route>
           <Route path="/dashboard" element={
             <PrivateRoute user={user} isLoading={isLoading}>
-              <Dashboard />
+              <Dashboard setUser={setUser} />
 
             </PrivateRoute>
           } >
