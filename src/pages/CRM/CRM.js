@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Axios from 'axios'
 import FileDownload from 'js-file-download';
 import './CRM.css'
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 function CRM() {
-    // const [isLoading, setIsLoading] = useState(false)
-
-    const [userData, setUserData] = useState({})
     const [projectBased, setProjectBased] = React.useState('Natural gas');
     const [projectTime, setProjectTime] = React.useState('5 Months');
 
@@ -18,22 +15,15 @@ function CRM() {
         setProjectTime(event.target.value);
 
     };
-    // const handleChange = (e) => {
-    //     const { name, value } = e.target;
-    //     let newUser = { ...userData }
-    //     newUser[name] = value
-
-    //     setUserData(newUser)
-    //     console.log(newUser)
-    // }
+ 
 
     const handleDownload = (e) => {
         // console.log(userData)
-        let newUser = {projectBased:projectBased, projectTime:projectTime }
+        let newUserInfo = {projectBased:projectBased, projectTime:projectTime }
         
 
 
-        Axios.post('http://localhost:5000/downloadPersonal', newUser, { responseType: 'blob' }).then((res) => {
+        Axios.post('http://localhost:5000/downloadPersonal', newUserInfo, { responseType: 'blob' }).then((res) => {
             FileDownload(res.data, 'proposal.doc')
         })
         // Axios({
