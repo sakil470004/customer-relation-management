@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Axios from 'axios'
 import FileDownload from 'js-file-download';
 import './CRM.css'
@@ -6,7 +6,7 @@ import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 function CRM() {
     const [projectBased, setProjectBased] = React.useState('Natural gas');
     const [projectTime, setProjectTime] = React.useState('5 Months');
-
+    const [loading, setLoading] = useState(false);
     const handleProjectBasedChange = (event) => {
         setProjectBased(event.target.value);
 
@@ -15,19 +15,21 @@ function CRM() {
         setProjectTime(event.target.value);
 
     };
- 
+
 
     const handleDownload = (e) => {
         // console.log(userData)
-        let newUserInfo = {projectBased:projectBased, projectTime:projectTime }
-        
+        setLoading(true);
+        let newUserInfo = { projectBased: projectBased, projectTime: projectTime }
 
 
-        Axios.post('http://localhost:5000/downloadPersonal', newUserInfo, { responseType: 'blob' }).then((res) => {
+
+        Axios.post('https://customer-relation-managements.herokuapp.com/downloadPersonal', newUserInfo, { responseType: 'blob' }).then((res) => {
             FileDownload(res.data, 'proposal.doc')
+            setLoading(false)
         })
         // Axios({
-        //     url: 'http://localhost:5000/downloadPersonal',
+        //     url: 'https://customer-relation-managements.herokuapp.com/downloadPersonal',
         //     method: 'post',
         //     responseType: 'blob'
 
@@ -37,7 +39,7 @@ function CRM() {
     }
 
 
-    return (
+    return (loading ? <h1>Loading...</h1> :
         <div>
             <h2 style={{ margin: '2rem 0' }}>Adding Your Necessary Tittle and Time</h2>
             <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
