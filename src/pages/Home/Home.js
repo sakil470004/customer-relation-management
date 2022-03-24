@@ -15,7 +15,7 @@ function Home() {
 
             <div className='home__overlay'>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'green', cursor: 'pointer' }}><DownloadIcon />
-                    <h2 style={{ color: '#5c47a5' }}>Rapid Proposal</h2></div>
+                    <h2 style={{ color: 'green' }}>Rapid Proposal</h2></div>
                 <h1>Our Purpose Is Help Our Customer Life Easier</h1>
                 <h3>You our welcome to take our service</h3>
                 <div>
