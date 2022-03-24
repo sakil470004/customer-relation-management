@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import { addToDb } from '../fakedb/fakedb';
+import bgImage from './../../assets/cover2.jpg'
 
 function Register({ setUser }) {
   const [loginData, setLoginData] = useState({})
@@ -31,7 +32,7 @@ function Register({ setUser }) {
           // alert('Registration Success')
           addToDb(loginData.email)
           setUser(loginData.email)
-          navigation('/')
+          navigation('/dashboard')
         } else {
           alert(data.message)
         }
@@ -39,11 +40,14 @@ function Register({ setUser }) {
     e.preventDefault();
   }
   return (
-    <div className='container'>
-      <div style={{ marginTop: '150px' }}>
+    <div className='bgAndText__container'>
+      <div className="bgImage__item-image">
+        <img src={bgImage} alt="" />
+      </div>
+      <div className='home__overlay' >
         <div >
 
-          <h1>Register</h1>
+          <h1 style={{color:'red'}}>Register</h1>
 
           <form onSubmit={handleRegisterSubmit}>
             <input className='inputBox'
@@ -65,7 +69,7 @@ function Register({ setUser }) {
             />
             <br />
             <button
-              className='btn btn-primary'
+              className='home__btn'
               type='submit'
             >Register</button>
 
@@ -77,6 +81,7 @@ function Register({ setUser }) {
         </div>
       </div>
     </div>
+    
 
   )
 }

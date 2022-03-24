@@ -4,17 +4,19 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import Footer from './pages/Responsive footer pure css/Footer';
-import Navigation from './pages/Responsive navbar pure css/Navigation';
+
 import Login from './pages/Login/Login';
 import Register from './pages/Login/Register';
 import { useEffect, useState } from 'react';
 import { getStoredCart } from './pages/fakedb/fakedb';
 import PrivateRoute from './pages/Login/PrivateRoute';
-import Home from './Home/Home';
-import CRM from './CRM/CRM';
+import Home from './pages/Home/Home';
+import CRM from './pages/CRM/CRM';
+import Dashboard from './pages/Dashboard/Dashboard';
+import DashboardHome from './pages/DashboardHome/DashboardHome';
+
 function App() {
- 
+
 
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState('')
@@ -24,10 +26,10 @@ function App() {
     setUser(getStoredCart().user)
     setIsLoading(false)
   }, [user])
-  return (isLoading? <h1>Loading...</h1>:
+  return (isLoading ? <h1>Loading...</h1> :
     <div className="App">
       <Router>
-        <Navigation user={user} setUser={setUser} />
+        {/* <Navigation user={user} setUser={setUser} /> */}
         <Routes>
           <Route path='/' element={<Home />}>
           </Route>
@@ -39,6 +41,17 @@ function App() {
             </PrivateRoute>
           } >
           </Route>
+          <Route path="/dashboard" element={
+            <PrivateRoute user={user} isLoading={isLoading}>
+              <Dashboard setUser={setUser} />
+
+            </PrivateRoute>
+          } >
+            <Route path='/dashboard' element={<DashboardHome />}>
+            </Route>
+            <Route path='/dashboard/CRM' element={<CRM />}>
+            </Route>
+          </Route>
 
           <Route path="/login" element={<Login setUser={setUser} />} >
           </Route>
@@ -47,8 +60,8 @@ function App() {
 
         </Routes>
         {/* this is footer fixed field show */}
-        <div style={{ width: '100%', height: '120px' }}></div>
-        <Footer />
+        {/* <div style={{ width: '100%', height: '120px' }}></div> */}
+        {/* <Footer /> */}
       </Router>
     </div>
   );

@@ -6,7 +6,7 @@
   border: 0;
   outline: 0;
   box-sizing: 0;
-  list-style: none;
+  /* list-style: none; */
   text-decoration: none;
 }
 
@@ -38,10 +38,11 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: var(--color-bg);
-  color: var(--color-white);
+  background: var(--color-white);
+  color: #222;
   line-height: 1.7;
-  background-image: url(../src/assets/bg.png);
+  transition:all 400s;
+  /* background-image: url(../src/assets/bg.png); */
 
 }
 
@@ -101,8 +102,8 @@ a:hover {
 }
 
 .btn:hover {
-  background: var(--color-white);
-  color: var(--color-bg);
+  background: var(--color-bg);
+  color: var(--color-white);
   border-color: transparent;
 }
 
@@ -112,8 +113,8 @@ a:hover {
 }
 
 img {
-  display: block;
-  width: 100%;
+  /* display: block; */
+  /* width: 100%; */
   object-fit: cover;
 }
 
@@ -121,9 +122,16 @@ img {
   margin: 0.7rem auto;
   width: 70%;
   padding: 0.5rem 1rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
+  color: #fff;
+  border: 1px solid #ffffff;
+  background: none;
+
   font-size: 25px;
 
+}
+.inputBox::placeholder{
+  color:red;
 }
 
 /* ===========MEDIA QUERIES (MEDIUM DEVICES)========= */

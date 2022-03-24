@@ -1,0 +1,24 @@
+.card_weeklySummery{
+    box-shadow:2px 2px 4px 2px rgba(0, 0, 0, 0.2); 
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: 2rem;
+
+   
+    
+}
+.card_weeklySummery >.card_title{
+display: flex;
+gap: 20px;
+justify-content: flex-start;
+/* align-items: center; */
+color:#1493e3;
+margin-bottom: 2rem;
+}
+.card_weeklySummery ul {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    
+    
+}

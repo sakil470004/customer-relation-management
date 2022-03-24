@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import { addToDb } from '../fakedb/fakedb';
+import bgImage from './../../assets/cover2.jpg'
 
 function Login({ setUser }) {
     const [loginData, setLoginData] = useState({})
@@ -32,7 +33,7 @@ function Login({ setUser }) {
                     // alert('success')
                     addToDb(loginData.email)
                     setUser(loginData.email)
-                    navigation('/')
+                    navigation('/dashboard')
                 } else {
                     alert('failed')
                 }
@@ -40,11 +41,14 @@ function Login({ setUser }) {
         e.preventDefault();
     }
     return (
-        <div className='container'>
-            <div style={{ marginTop: '150px' }}>
+        <div className='bgAndText__container'>
+            <div className="bgImage__item-image">
+                <img src={bgImage} alt="" />
+            </div>
+            <div className='home__overlay' >
                 <div >
 
-                    <h1>Login</h1>
+                    <h1 style={{color:'red'}}>Login</h1>
 
                     <form onSubmit={handleLoginSubmit}>
                         <input className='inputBox'
@@ -66,7 +70,7 @@ function Login({ setUser }) {
                         />
                         <br />
                         <button
-                            className='btn btn-primary'
+                            className='home__btn'
                             type='submit'
                         >Login</button>
 

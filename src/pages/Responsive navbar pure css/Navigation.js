@@ -16,7 +16,7 @@ const Navigation = ({ user, setUser }) => {
                 <input type="checkbox" id="nav-check" />
                 <div className="nav-header">
                     <div className="nav-title  ">
-                        <Link style={{ color: 'red', cursor: 'pointer' }} to='/'>MI</Link>
+                        <Link style={{ color: '#3c47a5', cursor: 'pointer' }} to='/'>Rapid Proposal</Link>
                         {/* logo */}
 
                     </div>
@@ -31,9 +31,9 @@ const Navigation = ({ user, setUser }) => {
 
                 <div className="nav-links">
                     <Link to='/'>Home</Link>
-                    <Link to='/addProduct'>CRM</Link>
-                    { user &&<Link to='/'>{user}</Link>
-                        }
+                    <Link to='/Dashboard'>DashBoard</Link>
+                    {user && <Link to='/'>{user}</Link>
+                    }
                     {!user ?
                         <Link to='/login'>Login</Link> :
                         <Link onClick={handleLogOut} to='/'>Logout</Link>}
