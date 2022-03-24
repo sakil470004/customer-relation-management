@@ -14,7 +14,7 @@ import PrivateRoute from './pages/Login/PrivateRoute';
 import Home from './Home/Home';
 import CRM from './CRM/CRM';
 function App() {
- 
+
 
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState('')
@@ -24,16 +24,22 @@ function App() {
     setUser(getStoredCart().user)
     setIsLoading(false)
   }, [user])
-  return (isLoading? <h1>Loading...</h1>:
+  return (isLoading ? <h1>Loading...</h1> :
     <div className="App">
       <Router>
-        <Navigation user={user} setUser={setUser} />
+        {/* <Navigation user={user} setUser={setUser} /> */}
         <Routes>
           <Route path='/' element={<Home />}>
           </Route>
 
 
           <Route path="/addProduct" element={
+            <PrivateRoute user={user} isLoading={isLoading}>
+              <CRM />
+            </PrivateRoute>
+          } >
+          </Route>
+          <Route path="/Dashboard" element={
             <PrivateRoute user={user} isLoading={isLoading}>
               <CRM />
             </PrivateRoute>
@@ -47,8 +53,8 @@ function App() {
 
         </Routes>
         {/* this is footer fixed field show */}
-        <div style={{ width: '100%', height: '120px' }}></div>
-        <Footer />
+        {/* <div style={{ width: '100%', height: '120px' }}></div> */}
+        {/* <Footer /> */}
       </Router>
     </div>
   );

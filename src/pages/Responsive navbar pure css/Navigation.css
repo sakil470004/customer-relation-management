@@ -8,7 +8,8 @@ body {
 } */
 
 .nav {
-    /* height: 50px; */
+    /* height: 55px; */
+    height: fit-content;
     width: 100%;
     background-color:var(--color-bg-variant);
     position: relative;
@@ -38,8 +39,10 @@ body {
 .nav>.nav-links>a {
     display: inline-block;
     padding: 13px 10px 13px 10px;
+    margin: 1px;
     text-decoration: none;
     color: #efefef;
+    border-radius: 1rem;
 }
 
 .nav>.nav-links>a:hover {
@@ -93,7 +96,7 @@ body {
     }
     .nav>#nav-check:checked~.nav-links {
         /* orginal */
-        height: calc(25vh - 50px);
+        height: calc(25vh - 52px);
         /* height: auto; */
         overflow-y: auto;
         

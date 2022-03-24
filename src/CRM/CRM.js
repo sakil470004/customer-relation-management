@@ -18,11 +18,11 @@ function CRM() {
         console.log(userData)
 
         
-        Axios.post('https://customer-relation-managements.herokuapp.com/downloadPersonal',  userData,{ responseType: 'blob' }).then((res) => {
+        Axios.post('http://localhost:5000/downloadPersonal',  userData,{ responseType: 'blob' }).then((res) => {
             FileDownload(res.data, 'proposal.doc')
         })
         // Axios({
-        //     url: 'https://customer-relation-managements.herokuapp.com/downloadPersonal',
+        //     url: 'http://localhost:5000/downloadPersonal',
         //     method: 'post',
         //     responseType: 'blob'
 
@@ -34,7 +34,7 @@ function CRM() {
 
     return (
         <div style={{ marginTop: '2rem' }}>
-            <div style={{ display: 'flex', gap: '20px', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', gap: '20px', alignItems: 'center', justifyContent: 'center',color:'black' }}>
                 <div className="radio-buttons">
                     <div>
                         <input

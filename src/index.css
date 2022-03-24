@@ -38,10 +38,11 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: var(--color-bg);
-  color: var(--color-white);
+  background: var(--color-white);
+  color: #222;
   line-height: 1.7;
-  background-image: url(../src/assets/bg.png);
+  transition:all 400s;
+  /* background-image: url(../src/assets/bg.png); */
 
 }
 
@@ -121,7 +122,11 @@ img {
   margin: 0.7rem auto;
   width: 70%;
   padding: 0.5rem 1rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
+  color: #fff;
+  border: 1px solid #ffffff;
+  background: none;
+
   font-size: 25px;
 
 }

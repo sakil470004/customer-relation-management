@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import { addToDb } from '../fakedb/fakedb';
+import bgImage from './../../assets/cover2.jpg'
 
 function Register({ setUser }) {
   const [loginData, setLoginData] = useState({})
@@ -17,7 +18,7 @@ function Register({ setUser }) {
 
   const handleRegisterSubmit = (e) => {
     const newLoginData = { email: loginData.email.toLowerCase(), password: loginData.password }
-    fetch('https://customer-relation-managements.herokuapp.com/adduser', {
+    fetch('http://localhost:5000/adduser', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -39,8 +40,11 @@ function Register({ setUser }) {
     e.preventDefault();
   }
   return (
-    <div className='container'>
-      <div style={{ marginTop: '150px' }}>
+    <div className='bgAndText__container'>
+      <div className="bgImage__item-image">
+        <img src={bgImage} alt="" />
+      </div>
+      <div className='home__overlay' >
         <div >
 
           <h1>Register</h1>
@@ -65,7 +69,7 @@ function Register({ setUser }) {
             />
             <br />
             <button
-              className='btn btn-primary'
+              className='home__btn'
               type='submit'
             >Register</button>
 
@@ -77,6 +81,7 @@ function Register({ setUser }) {
         </div>
       </div>
     </div>
+    
 
   )
 }
