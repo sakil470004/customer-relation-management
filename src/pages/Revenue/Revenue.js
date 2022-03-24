@@ -7,7 +7,7 @@ function Revenue() {
             <div style={{ color: 'black', background: 'grey', padding: '0.8rem 0' }} className='revenue-title'>
                 <h2>Revenue</h2>
             </div>
-            <div style={{padding:'15px',display:'flex',flexDirection:'column',gap:'10px',padding:'3rem'}}>
+            <div style={{display:'flex',flexDirection:'column',gap:'10px',padding:'3rem'}}>
                 <div style={{display:'flex',justifyContent:'space-between',marginTop:'5px'}}>
                     <h3>0-30 days  </h3><span style={{ border: '1px solid grey' }}>$1,250,000</span>
                 </div>

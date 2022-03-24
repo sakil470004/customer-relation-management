@@ -40,10 +40,10 @@ function Dashboard(props) {
             <Divider />
             {/* <Link to="/dashboard"> */}
             <button style={{ width: '90%' }} onClick={() => Navigation('/dashboard')} className=' btn__dashboard'>Dashboard</button>
-                {/* </Link> */ }
+         
                 < br />
                 <button  onClick={() => Navigation('/dashboard/CRM')} style={{ width: '90%' }} className='btn__dashboard'>CRM</button>
-            {/* <Divider /> */ }
+       
 
         </div>
     );
